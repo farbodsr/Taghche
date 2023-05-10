@@ -1,7 +1,7 @@
 using InMemoryCacheAdaptor;
 
 namespace UnitTest.Adaptors;
-public class InMemoryCache
+public class InMemoryCacheTest
 {
     [Fact]
     public void SetAndGet()
