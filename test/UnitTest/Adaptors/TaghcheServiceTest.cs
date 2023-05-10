@@ -27,7 +27,7 @@ public class TaghcheServiceTests
                 Content = content
             });
         var httpClient = new HttpClient(mockHttpMessageHandler.Object);
-        var bookService = new BookService(httpClient, "https://get.taaghche.com");
+        var bookService = new TaghcheService(httpClient, "https://get.taaghche.com");
 
 
         // Act

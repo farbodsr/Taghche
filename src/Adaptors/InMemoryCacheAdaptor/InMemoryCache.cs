@@ -1,16 +1,11 @@
-﻿using Microsoft.Extensions.Caching.Memory;
+﻿using ApplicationCore.Ports;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace InMemoryCacheAdaptor
 {
-    public interface ICacheManager
-    {
-        T Get<T>(string key);
-        void Set<T>(string key, T value, TimeSpan expirationTime);
-        void Remove(string key);
-        void Clear();
-    }
 
-    public class CacheManager : ICacheManager
+
+    public class CacheManager : IInMemoryCache
     {
         private readonly MemoryCache _cache;
 
@@ -19,7 +14,7 @@ namespace InMemoryCacheAdaptor
             _cache = new MemoryCache(new MemoryCacheOptions());
         }
 
-        public T Get<T>(string key)
+        public T? Get<T>(string key)
         {
             return _cache.Get<T>(key);
         }

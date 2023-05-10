@@ -1,22 +1,19 @@
-﻿namespace TaghcheServiceAdaptor;
-public interface IBookService
-{
-    Task<string> GetBookAsync(int id);
-}
+﻿using ApplicationCore.Ports;
 
-public class BookService : IBookService
+namespace TaghcheServiceAdaptor;
+public class TaghcheService : ITaghcheService
 {
     //Todo: dependencies
     private readonly HttpClient _httpClient;
     private readonly string _baseUrl;
 
-    public BookService(HttpClient httpClient, string baseUrl)
+    public TaghcheService(HttpClient httpClient, string baseUrl)
     {
         _httpClient = httpClient;
         _baseUrl = baseUrl;
     }
 
-    public async Task<string> GetBookAsync(int id)
+    public async Task<string> GetBookAsync(string id)
     {
         //Todo:hard coded url
         string url = $"{_baseUrl}/v2/book/{id}";
