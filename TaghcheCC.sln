@@ -5,9 +5,11 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adaptors", "Adaptors", "{F0F47854-EF57-44E8-9513-A4679B6BACF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InMemoryCacheAdaptor", "src\Adaptors\InMemoryCacheAdaptor\InMemoryCacheAdaptor.csproj", "{DD8A0A51-110B-4ED7-ADF4-2BED85D2CD69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InMemoryCacheAdaptor", "src\Adaptors\InMemoryCacheAdaptor\InMemoryCacheAdaptor.csproj", "{DD8A0A51-110B-4ED7-ADF4-2BED85D2CD69}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{92BC2771-A9EB-4F6C-A129-1DE5EBCB8B93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "test\UnitTest\UnitTest.csproj", "{2703F881-79A7-45D4-9F2A-221BD8E5796D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +21,10 @@ Global
 		{DD8A0A51-110B-4ED7-ADF4-2BED85D2CD69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD8A0A51-110B-4ED7-ADF4-2BED85D2CD69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD8A0A51-110B-4ED7-ADF4-2BED85D2CD69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2703F881-79A7-45D4-9F2A-221BD8E5796D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2703F881-79A7-45D4-9F2A-221BD8E5796D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2703F881-79A7-45D4-9F2A-221BD8E5796D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2703F881-79A7-45D4-9F2A-221BD8E5796D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
