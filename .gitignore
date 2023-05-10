@@ -1,0 +1,27 @@
+# User-specific files
+*.suo
+*.user
+*.vs
+*.log
+*.received.txt
+*.verified.txt.bak
+
+.vscode
+.awcache
+
+# Build results
+bin/
+build/
+obj/
+out/
+
+# Test Output
+_test-output/
+
+# NodeJS 
+node_modules/
+
+appsettings.Development.json
+appsettings.Production.json
+launchSettings.json
+/backend/src/Notifo/Assets
