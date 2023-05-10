@@ -1,6 +1,8 @@
 ﻿using TaghcheCC.ApplicationCore.FetchPolicy;
 
 namespace ApplicationCore.QueryService;
+
+//TODO: Add an interface for QueryService
 public class BookQueryService
 {
     private readonly FetchService _fetchService;

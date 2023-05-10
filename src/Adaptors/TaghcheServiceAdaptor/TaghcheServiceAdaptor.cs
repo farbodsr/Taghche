@@ -1,4 +1,5 @@
 ﻿using TaghcheCC.ApplicationCore.Ports;
+using static System.Net.WebRequestMethods;
 
 namespace TaghcheCC.TaghcheServiceAdaptor;
 public class TaghcheService : ITaghcheService
@@ -7,10 +8,10 @@ public class TaghcheService : ITaghcheService
     private readonly HttpClient _httpClient;
     private readonly string _baseUrl;
 
-    public TaghcheService(HttpClient httpClient, string baseUrl)
+    public TaghcheService(HttpClient httpClient)
     {
         _httpClient = httpClient;
-        _baseUrl = baseUrl;
+        _baseUrl = "https://get.taaghche.com";
     }
 
     public async Task<string> GetBookAsync(string id)

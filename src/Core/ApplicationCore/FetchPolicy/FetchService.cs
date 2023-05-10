@@ -1,10 +1,10 @@
 ﻿using TaghcheCC.ApplicationCore.Ports;
 
 namespace TaghcheCC.ApplicationCore.FetchPolicy;
-public class FetchService
+public class FetchService 
 {
     private readonly IHandler handler;
-    internal FetchService(IInMemoryCache inMemoryCache, ITaghcheService taghcheService)
+    public FetchService(IInMemoryCache inMemoryCache, ITaghcheService taghcheService)
     {
         handler = new FetchFromMemoryHandler(inMemoryCache);
         handler.SetNext(new FetchFromTaghcheHandler(taghcheService));

@@ -1,4 +1,4 @@
-using InMemoryCacheAdaptor;
+using TaghcheCC.InMemoryCacheAdaptor;
 
 namespace UnitTest.Adaptors;
 public class InMemoryCacheTest

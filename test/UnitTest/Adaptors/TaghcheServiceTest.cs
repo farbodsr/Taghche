@@ -1,7 +1,7 @@
 ﻿using Moq;
 using Moq.Protected;
 using System.Net;
-using TaghcheServiceAdaptor;
+using TaghcheCC.TaghcheServiceAdaptor;
 
 namespace UnitTest.Adaptors;
 public class TaghcheServiceTests
@@ -31,7 +31,7 @@ public class TaghcheServiceTests
 
 
         // Act
-        var actualJson = await bookService.GetBookAsync(1);
+        var actualJson = await bookService.GetBookAsync("1");
 
         // Assert
         Assert.Equal(await content.ReadAsStringAsync(), actualJson);
