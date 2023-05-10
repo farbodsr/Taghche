@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using InMemoryCacheAdaptor.DISetup;
+using InMemoryCacheAdaptor;
+using TaghcheServiceAdaptor;
 
 namespace DISetup
 {
@@ -8,6 +9,7 @@ namespace DISetup
         public static IServiceCollection AddDependencies(this IServiceCollection services)
         {
             services.AddInMemoryCacheService();
+            services.AddTaghcheService();
             return new ServiceCollection();
         }
     }
