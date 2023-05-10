@@ -1,28 +1,26 @@
-﻿namespace ApplicationCore.FetchPolicy
+﻿namespace TaghcheCC.ApplicationCore.FetchPolicy;
+abstract class AbstractHandler : IHandler
 {
-    abstract class AbstractHandler : IHandler
+    private IHandler _nextHandler;
+    internal IHandler nextHandler => _nextHandler;
+
+    public IHandler SetNext(IHandler handler)
     {
-        private IHandler _nextHandler;
-        internal IHandler nextHandler => _nextHandler;
+        this._nextHandler = handler;
 
-        public IHandler SetNext(IHandler handler)
-        {
-            this._nextHandler = handler;
-
-            return handler;
-        }
-
-        public virtual Task<string> HandleAsync(string request)
-        {
-            if (this._nextHandler != null)
-            {
-                return Task<string>.Run(() => this._nextHandler.HandleAsync(request));
-            }
-            else
-            {
-                return default;
-            }
-        }
-
+        return handler;
     }
+
+    public virtual Task<string> HandleAsync(string request)
+    {
+        if (this._nextHandler != null)
+        {
+            return Task<string>.Run(() => this._nextHandler.HandleAsync(request));
+        }
+        else
+        {
+            return default;
+        }
+    }
+
 }

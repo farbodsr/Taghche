@@ -1,16 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using InMemoryCacheAdaptor;
-using TaghcheServiceAdaptor;
+using TaghcheCC.InMemoryCacheAdaptor;
+using TaghcheCC.TaghcheServiceAdaptor;
 
-namespace DISetup
+namespace TaghcheCC.DISetup;
+public static class Setup
 {
-    public static class Setup
+    public static IServiceCollection AddDependencies(this IServiceCollection services)
     {
-        public static IServiceCollection AddDependencies(this IServiceCollection services)
-        {
-            services.AddInMemoryCacheService();
-            services.AddTaghcheService();
-            return new ServiceCollection();
-        }
+        services.AddInMemoryCacheService();
+        services.AddTaghcheService();
+        return new ServiceCollection();
     }
 }

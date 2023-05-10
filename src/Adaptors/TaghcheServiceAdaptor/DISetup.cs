@@ -1,16 +1,12 @@
-﻿
+﻿using Microsoft.Extensions.DependencyInjection;
+using TaghcheCC.ApplicationCore.Ports;
 
-using ApplicationCore.Ports;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace TaghcheServiceAdaptor
+namespace TaghcheCC.TaghcheServiceAdaptor;
+public static class DISetup
 {
-    public static class DISetup
+    public static IServiceCollection AddTaghcheService(this IServiceCollection services)
     {
-        public static IServiceCollection AddTaghcheService(this IServiceCollection services)
-        {
-            services.AddSingleton<ITaghcheService, TaghcheService>();
-            return new ServiceCollection();
-        }
+        services.AddSingleton<ITaghcheService, TaghcheService>();
+        return new ServiceCollection();
     }
 }

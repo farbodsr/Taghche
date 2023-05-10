@@ -1,14 +1,12 @@
-﻿namespace ApplicationCore.Ports
+﻿namespace TaghcheCC.ApplicationCore.Ports;
+public interface ICacheManager
 {
-    public interface ICacheManager
-    {
-        T? Get<T>(string key);
-        void Set<T>(string key, T value, TimeSpan expirationTime);
-        void Remove(string key);
-    }
+    T? Get<T>(string key);
+    void Set<T>(string key, T value, TimeSpan expirationTime);
+    void Remove(string key);
+}
 
-    public interface IInMemoryCache : ICacheManager
-    {
-        void Clear();
-    }
+public interface IInMemoryCache : ICacheManager
+{
+    void Clear();
 }

@@ -1,14 +1,12 @@
-﻿using ApplicationCore.Ports;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using TaghcheCC.ApplicationCore.Ports;
 
-namespace InMemoryCacheAdaptor
+namespace TaghcheCC.InMemoryCacheAdaptor;
+public static class DISetup
 {
-    public static class DISetup
+    public static IServiceCollection AddInMemoryCacheService(this IServiceCollection services)
     {
-        public static IServiceCollection AddInMemoryCacheService(this IServiceCollection services)
-        {
-            services.AddSingleton<IInMemoryCache, CacheManager>();
-            return new ServiceCollection();
-        }
+        services.AddSingleton<IInMemoryCache, CacheManager>();
+        return new ServiceCollection();
     }
 }

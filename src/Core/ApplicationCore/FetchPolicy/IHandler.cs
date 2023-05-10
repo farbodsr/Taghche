@@ -1,10 +1,8 @@
 ﻿
-namespace ApplicationCore.FetchPolicy
+namespace TaghcheCC.ApplicationCore.FetchPolicy;
+internal interface IHandler
 {
-    internal interface IHandler
-    {
-        IHandler SetNext(IHandler handler);
+    IHandler SetNext(IHandler handler);
 
-        Task<string> HandleAsync(string request);
-    }
+    Task<string> HandleAsync(string request);
 }

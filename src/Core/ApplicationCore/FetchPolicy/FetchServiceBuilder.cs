@@ -1,21 +1,19 @@
-﻿using ApplicationCore.Ports;
+﻿using TaghcheCC.ApplicationCore.Ports;
 
-namespace ApplicationCore.FetchPolicy
+namespace TaghcheCC.ApplicationCore.FetchPolicy;
+public class FetchService
 {
-    public class FetchService
+    private readonly IHandler handler;
+    internal FetchService(IInMemoryCache inMemoryCache, ITaghcheService taghcheService)
     {
-        private readonly IHandler handler;
-        internal FetchService(IInMemoryCache inMemoryCache,ITaghcheService taghcheService)
-        {
-            handler = new FetchFromMemoryHandler(inMemoryCache);
-            handler.SetNext(new FetchFromTaghcheHandler(taghcheService));
-        }
-
-        internal async Task<string> FetchBookAsync(string id)
-        {
-            return await handler.HandleAsync(id);
-        }
-
-        
+        handler = new FetchFromMemoryHandler(inMemoryCache);
+        handler.SetNext(new FetchFromTaghcheHandler(taghcheService));
     }
+
+    internal async Task<string> FetchBookAsync(string id)
+    {
+        return await handler.HandleAsync(id);
+    }
+
+
 }

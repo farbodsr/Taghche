@@ -1,6 +1,6 @@
-﻿using ApplicationCore.Ports;
+﻿using TaghcheCC.ApplicationCore.Ports;
 
-namespace TaghcheServiceAdaptor;
+namespace TaghcheCC.TaghcheServiceAdaptor;
 public class TaghcheService : ITaghcheService
 {
     //Todo: dependencies
