@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using ApplicationCore.DISetup;
+using Microsoft.Extensions.DependencyInjection;
 using TaghcheCC.InMemoryCacheAdaptor;
 using TaghcheCC.TaghcheServiceAdaptor;
 
@@ -9,6 +10,8 @@ public static class Setup
     {
         services.AddInMemoryCacheService();
         services.AddTaghcheService();
+        services.AddQuersyService();
+
         return new ServiceCollection();
     }
 }
