@@ -1,12 +1,7 @@
 ﻿namespace TaghcheCC.ApplicationCore.Ports;
 public interface ICacheManager
 {
-    T? Get<T>(string key);
-    void Set<T>(string key, T value, TimeSpan expirationTime);
-    void Remove(string key);
-}
-
-public interface IInMemoryCache : ICacheManager
-{
-    void Clear();
+    Task<T?> GetAsync<T>(string key);
+    Task SetAsync<T>(string key, T value, TimeSpan expirationTime);
+    Task RemoveAsync(string key);
 }

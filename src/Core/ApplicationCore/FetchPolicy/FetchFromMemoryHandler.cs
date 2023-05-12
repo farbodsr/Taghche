@@ -8,9 +8,9 @@ internal class FetchFromMemoryHandler : AbstractHandler
     {
         _inMemoryCache = inMemoryCache;
     }
-    public override async Task<string> HandleAsync(string request)
+    public override async Task<string?> HandleAsync(string request)
     {
-        var result = _inMemoryCache.Get<string>(request);
+        var result = await _inMemoryCache.GetAsync<string>(request);
         if (result is null)
         {
             result = await this.nextHandler.HandleAsync(request);
@@ -24,7 +24,7 @@ internal class FetchFromMemoryHandler : AbstractHandler
         {
             if (result != null)
             {
-                _inMemoryCache.Set<string>(request, result, TimeSpan.FromDays(1));
+                _inMemoryCache.SetAsync<string>(request, result, TimeSpan.FromDays(1));
             }
         }
         #endregion

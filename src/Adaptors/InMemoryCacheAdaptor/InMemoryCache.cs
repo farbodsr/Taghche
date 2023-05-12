@@ -11,27 +11,27 @@ public class CacheManager : IInMemoryCache
         _cache = new MemoryCache(new MemoryCacheOptions());
     }
 
-    public T? Get<T>(string key)
+    public Task<T?> GetAsync<T>(string key)
     {
-        return _cache.Get<T>(key);
+        return Task.Run(()=>_cache.Get<T>(key));
     }
 
-    public void Set<T>(string key, T value, TimeSpan expirationTime)
+    public Task SetAsync<T>(string key, T value, TimeSpan expirationTime)
     {
         var cacheEntryOptions = new MemoryCacheEntryOptions()
             .SetSlidingExpiration(expirationTime);
 
-        _cache.Set<T>(key, value, cacheEntryOptions);
+        return Task.Run(() => _cache.Set<T>(key, value, cacheEntryOptions));
     }
 
-    public void Remove(string key)
+    public Task RemoveAsync(string key)
     {
-        _cache.Remove(key);
+        return Task.Run(() => _cache.Remove(key));
     }
 
-    public void Clear()
+    public Task ClearAsync()
     {
-        _cache.Clear();
+        return Task.Run(() => _cache.Clear());
     }
 }
 

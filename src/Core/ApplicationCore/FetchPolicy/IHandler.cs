@@ -4,5 +4,5 @@ internal interface IHandler
 {
     IHandler SetNext(IHandler handler);
 
-    Task<string> HandleAsync(string request);
+    Task<string?> HandleAsync(string request);
 }

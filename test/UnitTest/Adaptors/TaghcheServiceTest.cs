@@ -1,7 +1,9 @@
-﻿using Moq;
+﻿using Microsoft.Extensions.Options;
+using Moq;
 using Moq.Protected;
 using System.Net;
 using TaghcheCC.TaghcheServiceAdaptor;
+using TaghcheServiceAdaptor;
 
 namespace UnitTest.Adaptors;
 public class TaghcheServiceTests
@@ -27,7 +29,19 @@ public class TaghcheServiceTests
                 Content = content
             });
         var httpClient = new HttpClient(mockHttpMessageHandler.Object);
-        var bookService = new TaghcheService(httpClient, "https://get.taaghche.com");
+
+        TaghcheSettings settings = new TaghcheSettings() 
+        { 
+            ApiVersion="/v2" , 
+            BaseUrl= "https://get.taaghche.com",
+            FetchBookEndpoint= "/book/{0}"
+
+        };
+                                                                                        // Make sure you include using Moq;
+        var mockOption= new Mock<IOptions<TaghcheSettings>>();
+        mockOption.Setup(ap => ap.Value).Returns(settings);
+
+        var bookService = new TaghcheService(httpClient, mockOption.Object);
 
 
         // Act

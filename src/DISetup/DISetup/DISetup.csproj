@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Adaptors\DistributedCacheAdaptor\DistributedCacheAdaptor.csproj" />
     <ProjectReference Include="..\..\Adaptors\InMemoryCacheAdaptor\InMemoryCacheAdaptor.csproj" />
     <ProjectReference Include="..\..\Adaptors\TaghcheServiceAdaptor\TaghcheServiceAdaptor.csproj" />
     <ProjectReference Include="..\..\Core\ApplicationCore\ApplicationCore.csproj" />

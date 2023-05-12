@@ -1,4 +1,7 @@
 using TaghcheCC.DISetup;
+using TaghcheCC.DistributedCacheAdaptor;
+using TaghcheServiceAdaptor;
+
 namespace Host;
 public class Program
 {
@@ -7,6 +10,7 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
+        AddConfigurations(builder);
         builder.Services.AddDependencies();
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -28,5 +32,14 @@ public class Program
         app.MapControllers();
 
         app.Run();
+
+        #region LocalMethods
+        void AddConfigurations(WebApplicationBuilder builder)
+        {
+            builder.Services.Configure<TaghcheSettings>(builder.Configuration.GetSection(nameof(TaghcheSettings)));
+            builder.Services.Configure<DistributedCacheSettings>(builder.Configuration.GetSection(nameof(DistributedCacheSettings)));
+        }
+        #endregion
     }
+
 }

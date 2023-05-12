@@ -11,7 +11,7 @@ abstract class AbstractHandler : IHandler
         return handler;
     }
 
-    public virtual Task<string> HandleAsync(string request)
+    public virtual Task<string?> HandleAsync(string request)
     {
         if (this._nextHandler != null)
         {

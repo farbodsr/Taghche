@@ -1,30 +1,27 @@
 ﻿using TaghcheCC.ApplicationCore.Ports;
-using static System.Net.WebRequestMethods;
+using Microsoft.Extensions.Options;
+using TaghcheServiceAdaptor;
 
 namespace TaghcheCC.TaghcheServiceAdaptor;
 public class TaghcheService : ITaghcheService
 {
-    //Todo: dependencies
     private readonly HttpClient _httpClient;
-    private readonly string _baseUrl;
+    private readonly TaghcheSettings _taghcheSettings;
 
-    public TaghcheService(HttpClient httpClient)
+    public TaghcheService(HttpClient httpClient,IOptions<TaghcheSettings> taghcheSettings)
     {
         _httpClient = httpClient;
-        _baseUrl = "https://get.taaghche.com";
+        _taghcheSettings = taghcheSettings.Value;
     }
 
     public async Task<string> GetBookAsync(string id)
     {
-        //Todo:hard coded url
-        string url = $"{_baseUrl}/v2/book/{id}";
-
+        var url = string.Format(_taghcheSettings.FetchBookurl, id);
         HttpResponseMessage response = await _httpClient.GetAsync(url);
 
         if (response.IsSuccessStatusCode)
         {
-            string json = await response.Content.ReadAsStringAsync();
-            return json;
+            return await response.Content.ReadAsStringAsync();
         }
         else
         {
@@ -32,3 +29,4 @@ public class TaghcheService : ITaghcheService
         }
     }
 }
+

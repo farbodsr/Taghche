@@ -1,4 +1,5 @@
-﻿using TaghcheCC.ApplicationCore.Ports;
+﻿using TaghcheCC.ApplicationCore.Exceptions;
+using TaghcheCC.ApplicationCore.Ports;
 
 namespace TaghcheCC.ApplicationCore.FetchPolicy;
 internal class FetchFromTaghcheHandler : AbstractHandler
@@ -13,7 +14,7 @@ internal class FetchFromTaghcheHandler : AbstractHandler
         string result = await _taghcheService.GetBookAsync(request);
         if (result is null)
         {
-            result = await this.nextHandler.HandleAsync(request);
+            throw new AppException();
         }
         return result;
 

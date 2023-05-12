@@ -1,9 +1,8 @@
 ﻿using TaghcheCC.ApplicationCore.FetchPolicy;
 
-namespace ApplicationCore.QueryService;
+namespace TaghcheCC.ApplicationCore.QueryService;
 
-//TODO: Add an interface for QueryService
-public class BookQueryService
+public class BookQueryService : IBookQueryService
 {
     private readonly FetchService _fetchService;
 

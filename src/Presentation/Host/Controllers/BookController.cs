@@ -1,4 +1,4 @@
-﻿using ApplicationCore.QueryService;
+﻿using TaghcheCC.ApplicationCore.QueryService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Host.Controllers
@@ -7,9 +7,9 @@ namespace Host.Controllers
     [ApiController]
     public class BookController : ControllerBase
     {
-        private readonly BookQueryService _bookQS;
+        private readonly IBookQueryService _bookQS;
 
-        public BookController(BookQueryService bookQS)
+        public BookController(IBookQueryService bookQS)
         {
             _bookQS = bookQS;
         }

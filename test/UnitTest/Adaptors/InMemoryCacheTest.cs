@@ -4,7 +4,7 @@ namespace UnitTest.Adaptors;
 public class InMemoryCacheTest
 {
     [Fact]
-    public void SetAndGet()
+    public async Task SetAndGet()
     {
         // Arrange
         var cache = new CacheManager();
@@ -13,8 +13,8 @@ public class InMemoryCacheTest
         var expirationTime = TimeSpan.FromMinutes(5);
 
         // Act
-        cache.Set(key, value, expirationTime);
-        var result = cache.Get<string>(key);
+        await cache.SetAsync(key, value, expirationTime);
+        var result = await cache.GetAsync<string>(key);
 
         // Assert
         Assert.Equal(value, result);
@@ -30,16 +30,16 @@ public class InMemoryCacheTest
         var expirationTime = TimeSpan.FromMinutes(5);
 
         // Act
-        cache.Set(key, value, expirationTime);
-        cache.Remove(key);
-        var result = cache.Get<string>(key);
+        cache.SetAsync(key, value, expirationTime);
+        cache.RemoveAsync(key);
+        var result = cache.GetAsync<string>(key);
 
         // Assert
         Assert.Null(result);
     }
 
     [Fact]
-    public void Clear()
+    public async Task Clear()
     {
         // Arrange
         var cache = new CacheManager();
@@ -49,11 +49,11 @@ public class InMemoryCacheTest
         var expirationTime = TimeSpan.FromMinutes(5);
 
         // Act
-        cache.Set(key1, value, expirationTime);
-        cache.Set(key2, value, expirationTime);
-        cache.Clear();
-        var result1 = cache.Get<string>(key1);
-        var result2 = cache.Get<string>(key2);
+        cache.SetAsync(key1, value, expirationTime);
+        cache.SetAsync(key2, value, expirationTime);
+        await cache.ClearAsync();
+        var result1 = cache.GetAsync<string>(key1);
+        var result2 = cache.GetAsync<string>(key2);
 
         // Assert
         Assert.Null(result1);

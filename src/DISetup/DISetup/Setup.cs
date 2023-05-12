@@ -1,7 +1,8 @@
-﻿using ApplicationCore.DISetup;
+﻿using TaghcheCC.ApplicationCore.DISetup;
 using Microsoft.Extensions.DependencyInjection;
 using TaghcheCC.InMemoryCacheAdaptor;
 using TaghcheCC.TaghcheServiceAdaptor;
+using TaghcheCC.DistributedCacheAdaptor;
 
 namespace TaghcheCC.DISetup;
 public static class Setup
@@ -11,6 +12,7 @@ public static class Setup
         services.AddInMemoryCacheService();
         services.AddTaghcheService();
         services.AddQuersyService();
+        services.AddDistributedCache();
 
         return new ServiceCollection();
     }

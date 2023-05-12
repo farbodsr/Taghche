@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DISetup", "DISetup", "{95C8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DISetup", "src\DISetup\DISetup\DISetup.csproj", "{4B0B770B-C1F9-46FC-88C0-08A459858A70}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCacheAdaptor", "src\Adaptors\DistributedCacheAdaptor\DistributedCacheAdaptor.csproj", "{AEF98F50-1109-49B6-9B39-6ADC869AD71D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{4B0B770B-C1F9-46FC-88C0-08A459858A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B0B770B-C1F9-46FC-88C0-08A459858A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B0B770B-C1F9-46FC-88C0-08A459858A70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEF98F50-1109-49B6-9B39-6ADC869AD71D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEF98F50-1109-49B6-9B39-6ADC869AD71D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEF98F50-1109-49B6-9B39-6ADC869AD71D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEF98F50-1109-49B6-9B39-6ADC869AD71D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 		{A20DEFA6-5E15-4217-B09F-9652F9A20C91} = {D2A1DCE7-6CB4-4DA6-8B95-81A841835291}
 		{95C811CA-467F-4F8A-B3FF-535271211B69} = {92BC2771-A9EB-4F6C-A129-1DE5EBCB8B93}
 		{4B0B770B-C1F9-46FC-88C0-08A459858A70} = {95C811CA-467F-4F8A-B3FF-535271211B69}
+		{AEF98F50-1109-49B6-9B39-6ADC869AD71D} = {F0F47854-EF57-44E8-9513-A4679B6BACF0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C00628E-81A8-4199-8247-B0A01F9076FF}
