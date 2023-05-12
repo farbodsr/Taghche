@@ -4,9 +4,9 @@ namespace TaghcheCC.ApplicationCore.QueryService;
 
 public class BookQueryService : IBookQueryService
 {
-    private readonly FetchService _fetchService;
+    private readonly BookFetchService _fetchService;
 
-    public BookQueryService(FetchService fetchService)
+    public BookQueryService(BookFetchService fetchService)
     {
         _fetchService = fetchService;
     }

@@ -1,5 +1,4 @@
 using Host.Middlewares;
-using TaghcheCC.ApplicationCore.Exceptions;
 using TaghcheCC.DISetup;
 using TaghcheCC.DistributedCacheAdaptor;
 using TaghcheServiceAdaptor;
@@ -13,7 +12,7 @@ public class Program
 
         // Add services to the container.
         AddConfigurations(builder);
-        builder.Services.AddDependencies();
+        builder.Services.AddDependencies(builder.Configuration.GetSection(nameof(DistributedCacheSettings)).Get<DistributedCacheSettings>());
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();

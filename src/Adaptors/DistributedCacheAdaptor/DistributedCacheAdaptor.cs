@@ -7,10 +7,9 @@ public class DistributedCacheAdaptor : IDistributedCache
 {
     private readonly IDatabase _database;
 
-    public DistributedCacheAdaptor(IOptions<DistributedCacheSettings> distributedCacheSettings)
+    public DistributedCacheAdaptor(IDatabase database)
     {
-        var connection = ConnectionMultiplexer.Connect(distributedCacheSettings.Value.ConnectionString);
-        _database = connection.GetDatabase();
+        _database = database;
     }
 
     public async Task<T?> GetAsync<T>(string key)

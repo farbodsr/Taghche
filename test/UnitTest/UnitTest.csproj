@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Adaptors\DistributedCacheAdaptor\DistributedCacheAdaptor.csproj" />
     <ProjectReference Include="..\..\src\Adaptors\InMemoryCacheAdaptor\InMemoryCacheAdaptor.csproj" />
     <ProjectReference Include="..\..\src\Adaptors\TaghcheServiceAdaptor\TaghcheServiceAdaptor.csproj" />
   </ItemGroup>

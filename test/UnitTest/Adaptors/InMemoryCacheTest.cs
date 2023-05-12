@@ -21,7 +21,7 @@ public class InMemoryCacheTest
     }
 
     [Fact]
-    public void Remove()
+    public async Task Remove()
     {
         // Arrange
         var cache = new CacheManager();
@@ -30,9 +30,9 @@ public class InMemoryCacheTest
         var expirationTime = TimeSpan.FromMinutes(5);
 
         // Act
-        cache.SetAsync(key, value, expirationTime);
-        cache.RemoveAsync(key);
-        var result = cache.GetAsync<string>(key);
+        await cache.SetAsync(key, value, expirationTime);
+        await cache.RemoveAsync(key);
+        var result = await cache.GetAsync<string>(key);
 
         // Assert
         Assert.Null(result);
@@ -49,11 +49,11 @@ public class InMemoryCacheTest
         var expirationTime = TimeSpan.FromMinutes(5);
 
         // Act
-        cache.SetAsync(key1, value, expirationTime);
-        cache.SetAsync(key2, value, expirationTime);
+        await cache.SetAsync(key1, value, expirationTime);
+        await cache.SetAsync(key2, value, expirationTime);
         await cache.ClearAsync();
-        var result1 = cache.GetAsync<string>(key1);
-        var result2 = cache.GetAsync<string>(key2);
+        var result1 = await cache.GetAsync<string>(key1);
+        var result2 = await cache.GetAsync<string>(key2);
 
         // Assert
         Assert.Null(result1);

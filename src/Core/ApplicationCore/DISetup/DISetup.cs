@@ -8,7 +8,7 @@ public static class DISetup
 {
     public static IServiceCollection AddQuersyService(this IServiceCollection services)
     {
-        services.AddTransient<FetchService>();
+        services.AddTransient<BookFetchService>();
         services.AddTransient<IBookQueryService,BookQueryService>();
         services.AddHttpClient();
 
