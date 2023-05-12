@@ -15,14 +15,14 @@ internal class FetchFromDistributedCacheHandler : AbstractHandler
         {
             result = await this.nextHandler.HandleAsync(request);
 
-            await InsertDistributedCacheIfNotExists(request, result);
+            await InsertToDistributedCacheIfResultIsValid(request, result);
         }
         return result;
 
         #region LocalMethods
-        async Task InsertDistributedCacheIfNotExists(string request, string result)
+        async Task InsertToDistributedCacheIfResultIsValid(string request, string result)
         {
-            if (result != null)
+            if (result!="null")
             {
                 await _distributedCache.SetAsync<string>(request, result, TimeSpan.FromDays(1));
             }

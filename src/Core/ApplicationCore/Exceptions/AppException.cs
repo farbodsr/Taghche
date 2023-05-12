@@ -3,4 +3,8 @@
     public class AppException : Exception
     {
     }
+
+    public class NotFoundException : Exception
+    {
+    }
 }

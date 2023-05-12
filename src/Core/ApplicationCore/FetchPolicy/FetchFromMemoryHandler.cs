@@ -15,14 +15,14 @@ internal class FetchFromMemoryHandler : AbstractHandler
         {
             result = await this.nextHandler.HandleAsync(request);
 
-            InsertInMomoryCacheIfNotExists(request, result);
+            InsertInMomoryCacheIfResultIsValid(request, result);
         }
         return result;
 
         #region LocalMethods
-        void InsertInMomoryCacheIfNotExists(string request, string result)
+        void InsertInMomoryCacheIfResultIsValid(string request, string result)
         {
-            if (result != null)
+            if (result!="null")
             {
                 _inMemoryCache.SetAsync<string>(request, result, TimeSpan.FromDays(1));
             }

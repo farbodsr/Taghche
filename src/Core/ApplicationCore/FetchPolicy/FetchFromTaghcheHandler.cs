@@ -12,9 +12,9 @@ internal class FetchFromTaghcheHandler : AbstractHandler
     public override async Task<string> HandleAsync(string request)
     {
         string result = await _taghcheService.GetBookAsync(request);
-        if (result is null)
+        if (result=="null")
         {
-            throw new AppException();
+            throw new NotFoundException();
         }
         return result;
 

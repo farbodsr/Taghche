@@ -1,8 +1,10 @@
+using Host.Middlewares;
+using TaghcheCC.ApplicationCore.Exceptions;
 using TaghcheCC.DISetup;
 using TaghcheCC.DistributedCacheAdaptor;
 using TaghcheServiceAdaptor;
 
-namespace Host;
+namespace TaghcheCC.Host;
 public class Program
 {
     public static void Main(string[] args)
@@ -18,7 +20,7 @@ public class Program
         builder.Services.AddSwaggerGen();
 
         var app = builder.Build();
-
+        app.UseExceptionHandlerMiddleware();
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
